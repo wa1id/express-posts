@@ -19,7 +19,14 @@ app.get('/', (req, res) => {
 
 // List all posts
 app.get('/posts', (req, res) => {
+  var URL = "http://jsonplaceholder.typicode.com/posts";
 
+  request(URL, function (err, response, body) {
+    if (err || response.statusCode !== 200) {
+      return res.sendStatus(500);
+    }
+    res.render('posts.ejs', {posts: JSON.parse(body)});
+  });
 });
 
 // Show the search form
