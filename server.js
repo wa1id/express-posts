@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+var request = require('request');
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log('Listening on port 3000');
+app.listen(process.env.PORT || 4000, () => {
+  console.log('Listening on port 4000');
 });
 
 app.set('view engine', 'ejs');
@@ -17,7 +18,9 @@ app.get('/', (req, res) => {
 });
 
 // List all posts
-app.get('/posts', (req, res) => {});
+app.get('/posts', (req, res) => {
+
+});
 
 // Show the search form
 app.get('/search', (req, res) => {
